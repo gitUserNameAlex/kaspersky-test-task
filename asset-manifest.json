@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/kaspersky-test-task/static/css/main.cf5f33c4.css",
+    "main.js": "/kaspersky-test-task/static/js/main.6c2ccdaf.js",
+    "static/media/kaspersky.svg": "/kaspersky-test-task/static/media/kaspersky.7b8d398f2169c19c851db39968c2fe91.svg",
+    "index.html": "/kaspersky-test-task/index.html",
+    "main.cf5f33c4.css.map": "/kaspersky-test-task/static/css/main.cf5f33c4.css.map",
+    "main.6c2ccdaf.js.map": "/kaspersky-test-task/static/js/main.6c2ccdaf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cf5f33c4.css",
+    "static/js/main.6c2ccdaf.js"
+  ]
+}
