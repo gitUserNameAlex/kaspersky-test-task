@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC, createContext, useState } from 'react';
+import { IAppContext, IWord } from './@types/context';
+import { Load } from './components/Load/Load';
+import { Save } from './components/Save/Save';
+import { FileContent } from './components/FileContent/FileContent';
+import styles from './App.module.css'
+import { ReactComponent as KasperskyLogo } from './assets/kaspersky.svg';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const defaultContext = {
+	fileData: null,
+	selectedWords: [],
+	setSelectedWords: () => {},
+	setFileData: () => {},
 }
 
-export default App;
+
+export const AppContext = createContext<IAppContext>(defaultContext)
+
+export const App: FC = () => {
+  	const [fileData, setFileData] = useState<string[][] | null>(null)
+		const [selectedWords, setSelectedWords] = useState<IWord[]>([])
+
+  return (
+		<div className={styles.App}>
+			<AppContext.Provider
+				value={{ fileData, setFileData, selectedWords, setSelectedWords }}
+			>
+				<KasperskyLogo />
+				<Load />
+				<Save />
+				<FileContent />
+			</AppContext.Provider>
+		</div>
+	)
+}
